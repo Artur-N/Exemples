@@ -1,102 +1,124 @@
-﻿// Cформировать случайным образом целочисленный массив A из натуральных двузначных чисел. 
-int[] A = new int[20];
+﻿// Cформировать случайным образом целочисленный массив A из натуральных двузначных чисел
+int[] A = new int[10];
 Console.WriteLine("Массив <А>: ");
-// for (int i = 0; i < 20; i++)
+for (int i = 0; i < A.Length; i++)
+{
+    A[i] = new Random().Next(10, 100);
+    Console.Write(A[i] + " ");
+}
+
+// решение через метод
+
+// void arrA(int[] A2)
 // {
-//     A[i] = new Random().Next(10, 100);
-//     Console.Write(A[i] + " ");
+//     int len = A2.Length;
+//     for (int i = 0; i < len; i++)
+//     {
+//         A2[i] = new Random().Next(10, 100);
+//     }
 // }
 
-// Через метод
-void arrA(int[] A2)
-{
-    int len = A2.Length;
-    for (int i = 0; i < len; i++)
-    {
-        A2[i] = new Random().Next(10, 100);
-    }
-}
+// void Print(int[] A3)
+// {
+//     int count = A3.Length;
+//     for (int pos = 0; pos < count; pos++)
+//     {
+//         Console.Write(A3[pos] + " ");
+//     }
+// }
 
-void Print(int[] A3)
-{
-    int count = A3.Length;
-    for (int pos = 0; pos < count; pos++)
-    {
-        Console.Write(A3[pos] + " ");
-    }
-}
-
-arrA(A);
-Print(A);
+// arrA(A);
+// Print(A);
 
 Console.WriteLine();
 Console.WriteLine();
 
 // Создать масив B, отбрасывая те, которые нарушают порядок возрастания
-Console.WriteLine("Массив <B>: ");
-int[] B = new int[20];
+Console.WriteLine("Задача 1: Убрать числа, нарушающие порядок возрастания. ");
+int[] B = new int[A.Length];
 B[0] = A[0];
 Console.Write(B[0] + " ");
-for (int i = 0; i < B.Length - 1; i++)
+int max = A[0];
+for (int i = 1; i < A.Length; i++)
 {
-    if (A[i + 1] > A[i])
+    if (A[i] > max)
     {
-        B[i] = A[i + 1];
-        Console.Write(B[i] + " ");
+        max = A[i];
+        Console.Write(max + " ");
     }
 }
 Console.WriteLine();
-// отбрасить те, которые больше среднего арифметического элементов A
 
-int sum(int[] A)
+// отбрасить те, которые больше среднего арифметического элементов A
+double sum(int[] A)
 {
     int s = 0;
-    int mid = 0;
-    for (int i = 0; i < 20; i++)
+    double mid = 0;
+    for (int i = 0; i < A.Length; i++)
     {
         s = A[i] + s;
     }
-    mid = s / 20;
+    mid = s / A.Length;
     return mid;
 }
-int f = sum(A);
-Console.WriteLine();
-Console.WriteLine("Среднее арифметическое массива <A> - " + (f));
+double f = sum(A);
 
 Console.WriteLine();
-Console.WriteLine("Меньше среднего арифметического в массива <В> следующие цифры: ");
-// решение через функцию
-void arrB(int[] B2)
+
+Console.WriteLine("Задача 2: Убрать все числа, которые больше среднеарифметического.");
+Console.WriteLine("Среднее арифметическое массива <A> " + (f));
+
+// решение через метод
+
+void arrB(int[] A)
 {
-    int len = B2.Length;
-    for (int i = 0; i < B2.Length; i++)
+    int len = A.Length;
+    for (int i = 0; i < A.Length; i++)
     {
-        if (B2[i] < f & B2[i] > 0)
+        if (A[i] <= f)
         {
-            Console.Write(B2[i] + " ");
+            Console.Write(A[i] + " ");
         }
     }
 }
-arrB(B);
+arrB(A);
 
-    // for (int i = 0; i < B.Length; i++)
-    // {
-    //     if (B[i] < f & B[i] > 0)
-    //     {
-    //         Console.Write(B[i] + " ");
-    //     }
-    // }
-    Console.WriteLine();
+// решение линейное
 
-    // отбросить чётные
-    
-    Console.WriteLine();
-    Console.Write("Оставшиеся нечётные массива <B>: ");
-    for (int i = 0; i < B.Length; i++)
+// for (int i = 0; i < A.Length; i++)
+// {
+//     if (A[i] < f)
+//     {
+//         Console.Write(A[i] + " ");
+//     }
+// }
+
+Console.WriteLine();
+
+// отбросить чётные
+
+Console.WriteLine();
+
+Console.WriteLine("Задача 3: Убрать все чётные: ");
+
+for (int i = 0; i < A.Length; i++)
+{
+    if (A[i] % 2 != 0)
     {
-        if (B[i] % 2 != 0)
-        {
-            Console.Write(B[i] + " ");
-        }
+        Console.Write(A[i] + " ");
     }
+}
 
+// решение через метод
+
+// void C(int[] A)
+// {
+//     for (int i = 0; i < A.Length; i++)
+//     {
+//         if (A[i] % 2 != 0)
+//         {
+//             Console.Write(A[i] + " ");
+//         }
+//     }
+// }
+// C(A);

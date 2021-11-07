@@ -42,7 +42,7 @@ int IndexOf(int[] collection, int find)
 
 int[] array = new int[10];
 
-FillArray(array);
+FillArray(array); 
 PrintArray(array);
 Console.WriteLine();
  
