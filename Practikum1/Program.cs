@@ -9,21 +9,19 @@ for (int i = 0; i < A.Length; i++)
 
 // решение через метод
 
-// void arrA(int[] A2)
+// void arrA(int[] A)
 // {
-//     int len = A2.Length;
-//     for (int i = 0; i < len; i++)
+//         for (int i = 0; i < A.Length; i++)
 //     {
-//         A2[i] = new Random().Next(10, 100);
+//         A[i] = new Random().Next(10, 100);
 //     }
 // }
 
-// void Print(int[] A3)
+// void Print(int[] A)
 // {
-//     int count = A3.Length;
-//     for (int pos = 0; pos < count; pos++)
+//     for (int pos = 0; pos < A.Length; pos++)
 //     {
-//         Console.Write(A3[pos] + " ");
+//         Console.Write(A[pos] + " ");
 //     }
 // }
 
@@ -38,13 +36,14 @@ Console.WriteLine("Задача 1: Убрать числа, нарушающие
 int[] B = new int[A.Length];
 B[0] = A[0];
 Console.Write(B[0] + " ");
-int max = A[0];
+int max = B[0];
 for (int i = 1; i < A.Length; i++)
 {
     if (A[i] > max)
     {
         max = A[i];
-        Console.Write(max + " ");
+        B[i] = max;
+        Console.Write(B[i] + " ");
     }
 }
 Console.WriteLine();
@@ -52,7 +51,7 @@ Console.WriteLine();
 // отбрасить те, которые больше среднего арифметического элементов A
 double sum(int[] A)
 {
-    int s = 0;
+    double s = 0;
     double mid = 0;
     for (int i = 0; i < A.Length; i++)
     {
@@ -70,28 +69,29 @@ Console.WriteLine("Среднее арифметическое массива <A
 
 // решение через метод
 
-void arrB(int[] A)
-{
-    int len = A.Length;
-    for (int i = 0; i < A.Length; i++)
-    {
-        if (A[i] <= f)
-        {
-            Console.Write(A[i] + " ");
-        }
-    }
-}
-arrB(A);
+// void arrB(int[] A)
+// {
+//         for (int i = 0; i < A.Length; i++)
+//     {
+//         if (A[i] <= f)
+//         {
+//             B[i] = A[i];
+//             Console.Write(B[i] + " ");
+//         }
+//     }
+// }
+// arrB(A);
 
 // решение линейное
 
-// for (int i = 0; i < A.Length; i++)
-// {
-//     if (A[i] < f)
-//     {
-//         Console.Write(A[i] + " ");
-//     }
-// }
+for (int i = 0; i < A.Length; i++)
+{
+    if (A[i] < f)
+    {
+        B[i] = A[i];
+        Console.Write(B[i] + " ");
+    }
+}
 
 Console.WriteLine();
 
@@ -105,7 +105,8 @@ for (int i = 0; i < A.Length; i++)
 {
     if (A[i] % 2 != 0)
     {
-        Console.Write(A[i] + " ");
+        B[i] = A[i];
+        Console.Write(B[i] + " ");
     }
 }
 
@@ -117,6 +118,7 @@ for (int i = 0; i < A.Length; i++)
 //     {
 //         if (A[i] % 2 != 0)
 //         {
+//             B[i] = A[i];
 //             Console.Write(A[i] + " ");
 //         }
 //     }
