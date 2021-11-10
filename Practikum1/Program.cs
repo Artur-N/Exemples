@@ -101,14 +101,26 @@ Console.WriteLine();
 
 Console.WriteLine("Задача 3: Убрать все чётные: ");
 
-for (int i = 0; i < A.Length; i++)
+void metod(int[] arr)
 {
-    if (A[i] % 2 != 0)
+    for (int i = 0; i < arr.Length; i++)
     {
-        B[i] = A[i];
-        Console.Write(B[i] + " ");
+        if (arr[i] % 2 != 0)
+        {
+            Console.Write(arr[i] + " ");
+        }
     }
 }
+metod(A);
+
+// for (int i = 0; i < A.Length; i++)
+// {
+//     if (A[i] % 2 != 0)
+//     {
+//         B[i] = A[i];
+//         Console.Write(B[i] + " ");
+//     }
+// }
 
 // решение через метод
 
