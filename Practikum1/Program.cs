@@ -101,7 +101,7 @@ Console.WriteLine();
 
 Console.WriteLine("Задача 3: Убрать все чётные: ");
 
-void metod(int[] arr)
+int[] metod(int[] arr)
 {
     for (int i = 0; i < arr.Length; i++)
     {
@@ -110,8 +110,9 @@ void metod(int[] arr)
             Console.Write(arr[i] + " ");
         }
     }
+    return arr;
 }
-metod(A);
+B = metod(A);
 
 // for (int i = 0; i < A.Length; i++)
 // {
