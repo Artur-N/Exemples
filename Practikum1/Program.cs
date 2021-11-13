@@ -100,19 +100,33 @@ Console.WriteLine();
 Console.WriteLine();
 
 Console.WriteLine("Задача 3: Убрать все чётные: ");
-
+int index = 0;
 int[] metod(int[] arr)
 {
+    int[] NewArr = new int[arr.Length];
     for (int i = 0; i < arr.Length; i++)
     {
         if (arr[i] % 2 != 0)
         {
-            Console.Write(arr[i] + " ");
+            NewArr[index] = arr[i];
+            // Console.Write($"{NewArr[index]} ");
+            index++;
         }
-    }
-    return arr;
+    } 
+    return NewArr;
 }
 B = metod(A);
+
+Console.WriteLine();
+
+void Print(int[] C)
+{
+    for (int i = 0; i < index; i++)
+    {
+        Console.Write(C[i] + " ");
+    }
+}
+Print(B);
 
 // for (int i = 0; i < A.Length; i++)
 // {
@@ -123,17 +137,4 @@ B = metod(A);
 //     }
 // }
 
-// решение через метод
 
-// void C(int[] A)
-// {
-//     for (int i = 0; i < A.Length; i++)
-//     {
-//         if (A[i] % 2 != 0)
-//         {
-//             B[i] = A[i];
-//             Console.Write(A[i] + " ");
-//         }
-//     }
-// }
-// C(A);
